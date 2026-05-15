@@ -1,0 +1,13 @@
+productId,quantity,scenarioType
+P1001,2,valid
+P1002,1,valid
+,2,invalid
+P1003,-5,invalid
+P1004,1,boundary
+P1005,99,boundary
+P1006,1,duplicate
+P1006,2,duplicate
+,3,missing
+P1007,,missing
+P2001,1,large
+P2050,5,large
