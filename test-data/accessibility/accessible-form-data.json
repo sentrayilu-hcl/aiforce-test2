@@ -1,0 +1,27 @@
+{
+  "traceability": {
+    "story": "SCRUM-179",
+    "test_cases": ["TC-SCRUM-179-001", "TC-SCRUM-179-003", "TC-SCRUM-179-006", "TC-SCRUM-179-007"]
+  },
+  "valid": [
+    {"caseId": "FORM-VALID-001", "email": "alex.chen@example.test", "fullName": "Alex Chen", "phone": "555-010-4821", "notes": "Please deliver between 9 AM and 5 PM."},
+    {"caseId": "FORM-VALID-002", "email": "maria.garcia@example.test", "fullName": "Maria Garcia", "phone": "555-011-3390", "notes": "Leave at reception desk."}
+  ],
+  "invalid": [
+    {"caseId": "FORM-INVALID-001", "email": "", "fullName": "Alex Chen", "phone": "555-010-4821", "notes": "Missing required email field"},
+    {"caseId": "FORM-INVALID-002", "email": "not-an-email", "fullName": "Alex Chen", "phone": "555-010-4821", "notes": "Invalid email format"},
+    {"caseId": "FORM-INVALID-003", "email": "alex.chen@example.test", "fullName": "", "phone": "555-010-4821", "notes": "Missing required full name"}
+  ],
+  "boundary": [
+    {"caseId": "FORM-BOUNDARY-001", "email": "a@b.co", "fullName": "A", "phone": "555-010-0000", "notes": "Minimum practical valid values"},
+    {"caseId": "FORM-BOUNDARY-002", "email": "very.long.local.part.name+tag@example.test", "fullName": "Maximally Acceptable Customer Name Example", "phone": "555-010-9999", "notes": "Boundary-length text for accessibility label wrapping"},
+    {"caseId": "FORM-BOUNDARY-003", "email": "boundary.user@example.test", "fullName": "Boundary User", "phone": "", "notes": ""}
+  ],
+  "duplicates": [
+    {"caseId": "FORM-DUPLICATE-001", "email": "alex.chen@example.test", "fullName": "Alex Chen", "phone": "555-010-4821", "notes": "Duplicate record used to verify duplicate handling"}
+  ],
+  "missingFieldScenarios": [
+    {"caseId": "FORM-MISSING-001", "missingFields": ["email"]},
+    {"caseId": "FORM-MISSING-002", "missingFields": ["fullName", "notes"]}
+  ]
+}

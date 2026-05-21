@@ -1,0 +1,53 @@
+name: Build and Deploy SCRUM-179 Accessibility Frontend
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+  workflow_dispatch:
+
+jobs:
+  build-test-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test -- --runInBand
+
+      - name: Run accessibility tests
+        run: npm run test:accessibility
+
+      - name: Build application
+        run: npm run build
+
+      - name: Build Docker image
+        run: docker build -t accessibility-frontend:${{ github.sha }} .
+
+      - name: Smoke test container
+        run: |
+          docker run -d --rm --name accessibility-frontend -p 8080:8080 accessibility-frontend:${{ github.sha }}
+          chmod +x deploy/scripts/smoke-test.sh
+          BASE_URL=http://localhost:8080 deploy/scripts/smoke-test.sh
+          docker stop accessibility-frontend
+
+  deploy:
+    needs: build-test-package
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Deployment placeholder
+        run: echo "Insert environment-specific deployment command here"

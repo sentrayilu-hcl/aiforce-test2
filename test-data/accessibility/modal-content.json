@@ -1,0 +1,8 @@
+{
+  "traceability": {"story": "SCRUM-179", "test_cases": ["TC-SCRUM-179-004", "TC-SCRUM-179-005", "TC-SCRUM-179-010", "TC-SCRUM-179-011"]},
+  "modals": [
+    {"caseId": "MODAL-001", "title": "Product details", "body": "This sample product is available for immediate shipping.", "primaryAction": "Confirm", "secondaryAction": "Close"},
+    {"caseId": "MODAL-002", "title": "Delete item from wishlist", "body": "This action removes the item from your wishlist. You can add it again later.", "primaryAction": "Delete", "secondaryAction": "Cancel"},
+    {"caseId": "MODAL-003", "title": "Accessibility notice", "body": "Keyboard focus will remain inside this dialog until it is closed.", "primaryAction": "Understood", "secondaryAction": "Close"}
+  ]
+}

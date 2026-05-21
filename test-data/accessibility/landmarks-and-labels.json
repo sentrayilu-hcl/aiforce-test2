@@ -1,0 +1,14 @@
+{
+  "traceability": {"story": "SCRUM-179", "test_cases": ["TC-SCRUM-179-001", "TC-SCRUM-179-002", "TC-SCRUM-179-006", "TC-SCRUM-179-011"]},
+  "landmarks": [
+    {"caseId": "LANDMARK-001", "role": "banner", "label": "Store Header"},
+    {"caseId": "LANDMARK-002", "role": "navigation", "label": "Primary"},
+    {"caseId": "LANDMARK-003", "role": "main", "label": "main-content"},
+    {"caseId": "LANDMARK-004", "role": "contentinfo", "label": "Store Footer"}
+  ],
+  "labels": [
+    {"caseId": "LABEL-001", "control": "email", "labelText": "Email address", "hintText": "Used for order updates"},
+    {"caseId": "LABEL-002", "control": "fullName", "labelText": "Full name", "hintText": "Use the name shown on your account"},
+    {"caseId": "LABEL-003", "control": "dismissToast", "labelText": "Dismiss notification", "hintText": null}
+  ]
+}
