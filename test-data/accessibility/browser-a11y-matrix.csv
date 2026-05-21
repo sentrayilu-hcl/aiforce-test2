@@ -1,0 +1,7 @@
+caseId,browser,screenReader,platform,expectedResult
+MATRIX-001,Chrome,NVDA,Windows 11,Pass
+MATRIX-002,Firefox,NVDA,Windows 11,Pass
+MATRIX-003,Edge,JAWS,Windows 11,Pass
+MATRIX-004,Safari,VoiceOver,macOS,Pass
+MATRIX-005,Chrome,TalkBack,Android,Pass
+MATRIX-006,Safari,VoiceOver,iOS,Pass

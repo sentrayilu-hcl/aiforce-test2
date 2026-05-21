@@ -1,0 +1,9 @@
+{
+  "traceability": {"story": "SCRUM-179", "test_cases": ["TC-SCRUM-179-001", "TC-SCRUM-179-003", "TC-SCRUM-179-004", "TC-SCRUM-179-005", "TC-SCRUM-179-009"]},
+  "sequences": [
+    {"caseId": "KEYSEQ-001", "name": "Skip link to main content", "keys": ["Tab", "Enter"], "expectedOutcome": "Focus moves from skip link to main content container."},
+    {"caseId": "KEYSEQ-002", "name": "Navigate through primary actions", "keys": ["Tab", "Tab", "Tab"], "expectedOutcome": "Focus moves in a predictable order across actionable controls."},
+    {"caseId": "KEYSEQ-003", "name": "Open and close modal using Escape", "keys": ["Enter", "Escape"], "expectedOutcome": "Dialog opens, then closes and restores focus to trigger."},
+    {"caseId": "KEYSEQ-004", "name": "Arrow navigation in composite control", "keys": ["Tab", "ArrowRight", "ArrowRight", "Enter"], "expectedOutcome": "Selection moves within the composite control and activates the intended item."}
+  ]
+}
