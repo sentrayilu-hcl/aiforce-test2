@@ -1,35 +1,36 @@
-# SCRUM-179 Deployment Guide
+# Deployment Guide - US-001
 
-## Overview
-This deployment package supports the React + TypeScript accessibility improvements for SCRUM-179.
+Traceability:
+BN-01 -> BR-001 -> EPIC-001 -> US-001
 
-## Runtime
-- Docker container runtime
-- Nginx serves the production build
-- SPA fallback configured for client-side routing
+## Prerequisites
+- Kubernetes cluster
+- kubectl configured
+- PostgreSQL available
+- Container image published
+- Spring Boot app built with actuator health endpoint enabled
 
-## Local Run
+## Deploy
 ```bash
-cp deploy/env/.env.example .env
-docker compose up --build
+kubectl apply -f deploy/k8s/namespace.yaml
+kubectl apply -f deploy/k8s/configmap.yaml
+kubectl apply -f deploy/k8s/secret-template.yaml
+kubectl apply -f deploy/k8s/service.yaml
+kubectl apply -f deploy/k8s/pdb.yaml
+kubectl apply -f deploy/k8s/hpa.yaml
+kubectl apply -f deploy/k8s/deployment.yaml
+kubectl apply -f deploy/k8s/ingress.yaml
 ```
 
-## Health Check
-- `GET /health` returns `200 OK`
-
-## Smoke Validation
+## Validate
 ```bash
-chmod +x deploy/scripts/smoke-test.sh
-BASE_URL=http://localhost:8080 deploy/scripts/smoke-test.sh
+kubectl get pods -n aiforce-test2
+kubectl rollout status deployment/aiforce-test2 -n aiforce-test2
+bash scripts/smoke-test/auth-session-smoke.sh
 ```
-
-## Validation Gates
-- Unit tests pass
-- Accessibility tests pass
-- Build succeeds
-- Container starts successfully
-- Health endpoint returns OK
-- Smoke test passes
 
 ## Rollback
-See `docs/deployment/rollback-notes.md`.
+```bash
+kubectl rollout undo deployment/aiforce-test2 -n aiforce-test2
+kubectl rollout status deployment/aiforce-test2 -n aiforce-test2
+```

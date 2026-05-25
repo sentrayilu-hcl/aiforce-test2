@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aiforce-test2
+  namespace: aiforce-test2
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: aiforce-test2.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: aiforce-test2
+                port:
+                  number: 80

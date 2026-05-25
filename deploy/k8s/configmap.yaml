@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aiforce-test2-config
+  namespace: aiforce-test2
+  labels:
+    app.kubernetes.io/name: aiforce-test2
+data:
+  SPRING_PROFILES_ACTIVE: "k8s"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql.default.svc.cluster.local:5432/aiforce"
+  SPRING_DATASOURCE_USERNAME: "aiforce"
+  SECURITY_JWT_EXPIRATION_MINUTES: "30"
+  SECURITY_SESSION_TIMEOUT_MINUTES: "30"
+  MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,info"
+  MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED: "true"
