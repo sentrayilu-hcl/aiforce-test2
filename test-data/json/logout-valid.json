@@ -1,0 +1,7 @@
+{
+  "traceability": ["BN-01", "BR-001", "EPIC-001", "US-001"],
+  "scenario": "logout-valid-session",
+  "sessionId": "sess-valid-001",
+  "expectedStatus": 200,
+  "expectedMessage": "Logged out successfully"
+}

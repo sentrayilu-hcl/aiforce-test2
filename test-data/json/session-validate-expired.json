@@ -1,0 +1,7 @@
+{
+  "traceability": ["BN-01", "BR-001", "EPIC-001", "US-001"],
+  "scenario": "validate-expired-session",
+  "sessionId": "sess-expired-001",
+  "expectedStatus": 401,
+  "expectedErrorContains": "Session expired"
+}
