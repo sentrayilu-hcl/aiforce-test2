@@ -1,21 +1,22 @@
-# Rollback Notes — SCRUM-179
+# Rollback Notes
 
-## Trigger Conditions
-Rollback if:
-- App fails health checks
-- Accessibility smoke tests fail in staging
-- Critical keyboard navigation regression is found
-- Screen reader support is broken in a release candidate
+If deployment health checks or smoke tests fail:
 
-## Rollback Approach
-1. Revert deployment to the last stable container image.
-2. Restore previous frontend build artifact.
-3. Confirm `/health` and homepage return OK.
-4. Re-run smoke checks and accessibility spot checks.
+1. Inspect rollout:
+```bash
+kubectl describe deployment aiforce-test2 -n aiforce-test2
+kubectl get events -n aiforce-test2 --sort-by=.metadata.creationTimestamp
+```
 
-## Validation After Rollback
-- Home page loads
-- Skip link visible on focus
-- Navigation is usable by keyboard
-- Modal focus trap behaves correctly
-- No new critical console/build errors
+2. Roll back:
+```bash
+kubectl rollout undo deployment/aiforce-test2 -n aiforce-test2
+```
+
+3. Re-run smoke tests after rollback.
+
+## Common rollback triggers
+- Unhealthy readiness/liveness probe
+- Database connection failure
+- Misconfigured secret or JWT key
+- Regression in login or session validation

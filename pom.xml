@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.aiforce</groupId>
+    <artifactId>aiforce-test2</artifactId>
+    <version>1.0.0</version>
+    <name>aiforce-test2</name>
+    <description>API automation for secure login and session management</description>
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <junit.jupiter.version>5.10.2</junit.jupiter.version>
+        <restassured.version>5.5.0</restassured.version>
+        <assertj.version>3.26.3</assertj.version>
+        <slf4j.version>2.0.13</slf4j.version>
+        <jackson.version>2.17.2</jackson.version>
+    </properties>
+
+    <dependencies>
+        <dependency><groupId>io.rest-assured</groupId><artifactId>rest-assured</artifactId><version>${restassured.version}</version><scope>test</scope></dependency>
+        <dependency><groupId>io.rest-assured</groupId><artifactId>json-path</artifactId><version>${restassured.version}</version><scope>test</scope></dependency>
+        <dependency><groupId>io.rest-assured</groupId><artifactId>xml-path</artifactId><version>${restassured.version}</version><scope>test</scope></dependency>
+        <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><version>${junit.jupiter.version}</version><scope>test</scope></dependency>
+        <dependency><groupId>org.assertj</groupId><artifactId>assertj-core</artifactId><version>${assertj.version}</version><scope>test</scope></dependency>
+        <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version><scope>test</scope></dependency>
+        <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>${slf4j.version}</version><scope>test</scope></dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration><useSystemClassLoader>true</useSystemClassLoader></configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

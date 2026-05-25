@@ -1,0 +1,6 @@
+{
+  "traceability": ["BN-01", "BR-001", "EPIC-001", "US-001"],
+  "scenario": "protected-access-valid",
+  "authorizationHeader": "Bearer ${ACCESS_TOKEN}",
+  "expectedStatus": 200
+}

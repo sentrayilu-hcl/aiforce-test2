@@ -1,0 +1,7 @@
+{
+  "traceability": ["BN-01", "BR-001", "EPIC-001", "US-001"],
+  "scenario": "duplicate-user-insert",
+  "username": "duplicate.user",
+  "duplicateUsernameAttempt": true,
+  "expectedDatabaseOutcome": "unique_constraint_violation"
+}

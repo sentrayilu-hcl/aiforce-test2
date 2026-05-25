@@ -1,0 +1,7 @@
+{
+  "traceability": ["BN-01", "BR-001", "EPIC-001", "US-001"],
+  "scenario": "validate-invalid-session",
+  "sessionId": "sess-does-not-exist",
+  "expectedStatus": 401,
+  "expectedErrorContains": "Session not found"
+}

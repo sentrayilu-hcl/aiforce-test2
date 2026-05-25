@@ -1,0 +1,8 @@
+{
+  "traceability": ["BN-01", "BR-001", "EPIC-001", "US-001"],
+  "scenario": "valid-login",
+  "username": "customer1",
+  "password": "${TEST_PASSWORD}",
+  "expectedStatus": 200,
+  "expectedFields": ["accessToken", "tokenType", "expiresInSeconds", "sessionId"]
+}

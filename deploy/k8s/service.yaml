@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aiforce-test2
+  namespace: aiforce-test2
+  labels:
+    app.kubernetes.io/name: aiforce-test2
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: aiforce-test2
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
